@@ -1,19 +1,19 @@
 <mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>{{data.meta.title}}</mat-card-title>
-  </mat-card-header>
-  <img mat-card-image src="{{data.meta.imageUrl}}" alt="{{data.meta.title}}">
-  <mat-card-content>
-    <p>
-      {{data.meta.description}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <mat-chip-list>
-      <mat-chip *ngFor="let tag of data.tags" [routerLink]="['/tag/', tag]">{{tag}}</mat-chip>
-    </mat-chip-list>
-  </mat-card-actions>
-  <mat-card-actions class="actions">
-    <a href="{{data.meta.url}}" target="_blank" mat-button>Open Content</a>
-  </mat-card-actions>
+    <mat-card-header>
+        <mat-card-title>{{data.meta.title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{data.meta.imageUrl}}" alt="{{data.meta.title}}">
+    <mat-card-content>
+        <p>
+            {{data.meta.description}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-chip-list>
+            <mat-chip *ngFor="let tag of data.tags" [routerLink]="['/tag/', tag]">{{tag}}</mat-chip>
+        </mat-chip-list>
+    </mat-card-actions>
+    <mat-card-actions class="actions">
+        <a href="{{data.meta.url}}" target="_blank" mat-button>Open Content</a>
+    </mat-card-actions>
 </mat-card>
