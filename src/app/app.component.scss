@@ -1,0 +1,20 @@
+.messageText {
+  padding-left: 2rem;
+  text-decoration: underline;
+}
+
+mat-toolbar {
+  z-index: 998;
+  position: fixed;
+
+}
+mat-toolbar-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+main {
+  padding-top: 4rem;
+  padding-left:1rem;
+}

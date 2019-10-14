@@ -12,8 +12,13 @@ import {RemoteService} from "./service/remote";
 import {MatButtonModule} from "@angular/material/button";
 import {NewscardComponent} from "./newscard/newscard.component";
 import {MatChipsModule} from "@angular/material/chips";
-import { TagComponent } from './tag/tag.component';
-import { SlugComponent } from './slug/slug.component';
+import {TagComponent} from './tag/tag.component';
+import {SlugComponent} from './slug/slug.component';
+import {MessageService} from "./service/message";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
+import { AboutComponent } from './about/about.component';
+import { CookieComponent } from './cookie/cookie.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,9 @@ import { SlugComponent } from './slug/slug.component';
     StartComponent,
     NewscardComponent,
     TagComponent,
-    SlugComponent
+    SlugComponent,
+    AboutComponent,
+    CookieComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +39,15 @@ import { SlugComponent } from './slug/slug.component';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
-    MatChipsModule
+    MatChipsModule,
+    MatMenuModule,
+    MatIconModule
   ],
-  providers: [HttpClient, RemoteService],
+  providers: [
+    HttpClient,
+    RemoteService,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
