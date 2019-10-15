@@ -20,8 +20,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {AboutComponent} from './about/about.component';
 import {CookieComponent} from './cookie/cookie.component';
 import {CookieService} from 'ngx-cookie-service';
-import { CookiemodalComponent } from './cookiemodal/cookiemodal.component';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {CookiemodalComponent} from './cookiemodal/cookiemodal.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
     declarations: [

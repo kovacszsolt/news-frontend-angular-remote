@@ -28,7 +28,13 @@ export class AppComponent implements OnInit, OnDestroy {
             .subscribe((message) => {
                 this.messageText = message;
             });
-        this.openCookieDialog();
+        if (!this.cookieService.check('ready')) {
+            this.openCookieDialog();
+        }
+    }
+
+    public setLocation(url) {
+        this.messageService.updateLocation(url);
     }
 
     private openCookieDialog() {
@@ -37,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
             disableClose: true
         });
         dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
+            this.cookieService.set('ready', '1');
         });
     }
 

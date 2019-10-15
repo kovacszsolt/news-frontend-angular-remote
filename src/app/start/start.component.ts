@@ -1,23 +1,23 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {RemoteService} from '../service/remote';
+import {Component, Injector, OnDestroy, OnInit} from '@angular/core';
 import {ItemPageModel} from '../model/item.model';
-import {MessageService} from '../service/message';
+import {MainComponent} from '../main.component';
 
 @Component({
     selector: 'app-start',
     templateUrl: './start.component.html',
     styleUrls: ['./start.component.scss']
 })
-export class StartComponent implements OnInit, OnDestroy {
+export class StartComponent extends MainComponent implements OnInit, OnDestroy {
     public itemPager = new ItemPageModel({});
     public page = 1;
     public itemList = [];
 
-    constructor(private remoteService: RemoteService, private messageService: MessageService) {
-
+    constructor(injector: Injector) {
+        super(injector);
     }
 
     public ngOnInit(): void {
+        this.remoteLocation();
         this.getData();
     }
 

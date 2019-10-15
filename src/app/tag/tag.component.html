@@ -2,6 +2,6 @@
     <app-newscard *ngFor="let item of itemList" [data]="item"></app-newscard>
 </main>
 
-<div class="next">
+<div class="next" *ngIf="moreEnabled">
     <button mat-flat-button color="primary" (click)="nextPage()">Még több...</button>
 </div>

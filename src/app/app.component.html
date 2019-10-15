@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
         <div>
-            <a mat-button href="/">IT News dot Cloud</a>
+            <button mat-button (click)="setLocation('/')">IT News dot Cloud</button>
             <span class="messageText">{{messageText}}</span>
         </div>
         <div>
@@ -9,14 +9,14 @@
                 <mat-icon>dehaze</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <a href="/about/" mat-menu-item>
+                <button (click)="setLocation('/about/')" mat-menu-item>
                     <mat-icon>info</mat-icon>
                     <span>About</span>
-                </a>
-                <a href="/cookie/" mat-menu-item>
+                </button>
+                <button (click)="setLocation('/cookie/')" mat-menu-item>
                     <mat-icon>fingerprint</mat-icon>
                     <span>Cookie usage</span>
-                </a>
+                </button>
             </mat-menu>
         </div>
 
