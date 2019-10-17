@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-itnewscloud": "ng build --configuration=enviroment.prod.itnewscloud",
-    "build-itcrowdhu": "ng build --configuration=enviroment.prod.itcrowdhu",
+    "build:itnewscloud": "ng build --prod --configuration=itnewscloud",
+    "build:itcrowdhu": "ng build --prod --configuration=itcrowdhu",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

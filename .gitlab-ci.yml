@@ -1,0 +1,51 @@
+# REGISTRY_USERNAME = password in docker registry
+# REGISTRY_PASSWORD = username in docker registry
+# REGISTRY_IMAGE = image name in registry eg. kovacszsolt/news-frontend-angular-remote
+cache:
+  paths:
+    - build/
+    - build/itcrowdhu
+    - build/itnewscloud
+stages:
+  - build
+  - release
+  - deploy
+
+build:
+  image: node:latest
+  stage: build
+  script:
+    - npm install
+    - npm run build:itnewscloud
+    - npm run build:itcrowdhu
+  only:
+    - master
+
+create:
+  image: docker:latest
+  stage: release
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay
+  before_script:
+    - docker info
+  script:
+    - echo "$REGISTRY_PASSWORD" |  docker login -u $REGISTRY_USERNAME --password-stdin
+    - docker build --pull -t "${REGISTRY_IMAGE}:itcrowdhu" -f Dockerfile.itcrowdhu .
+    - docker build --pull -t "${REGISTRY_IMAGE}:itnewscloud" -f Dockerfile.itnewscloud .
+    - docker push "${REGISTRY_IMAGE}:itcrowdhu"
+    - docker push "${REGISTRY_IMAGE}:itnewscloud"
+  only:
+    - master
+
+deploy:
+  image: alpine:latest
+  stage: deploy
+  script:
+#    - apk add --update --no-cache openssh sshpass
+#    - sshpass -V
+#    - export SSHPASS=$DEPLOY_REMOTE_PASSWORD
+#    - sshpass -e ssh -oStrictHostKeyChecking=no $DEPLOY_REMOTE_USERNAME@$DEPLOY_REMOTE_HOST '$DEPLOY_REMOTE_SCRIPT'
+  only:
+    - master
