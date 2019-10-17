@@ -4,6 +4,8 @@ import {Subscription} from 'rxjs';
 import {CookieService} from 'ngx-cookie-service';
 import {MatDialog} from '@angular/material/dialog';
 import {CookiemodalComponent} from './cookiemodal/cookiemodal.component';
+import {environment} from '../environments/environment';
+import {Title} from '@angular/platform-browser';
 
 @Component({
     selector: 'app-root',
@@ -12,10 +14,12 @@ import {CookiemodalComponent} from './cookiemodal/cookiemodal.component';
 })
 export class AppComponent implements OnInit, OnDestroy {
     public messageText = '';
+    public title = environment.title;
+;
     private messageServiceSubscription: Subscription;
 
 
-    constructor(private messageService: MessageService, private cookieService: CookieService, public dialog: MatDialog) {
+    constructor(private titleService: Title, private messageService: MessageService, private cookieService: CookieService, public dialog: MatDialog) {
 
     }
 
@@ -27,10 +31,14 @@ export class AppComponent implements OnInit, OnDestroy {
         this.messageServiceSubscription = this.messageService.getMessage()
             .subscribe((message) => {
                 this.messageText = message;
+                this.titleService.setTitle(environment.title + ' - ' + message);
             });
+        /*
         if (!this.cookieService.check('ready')) {
             this.openCookieDialog();
         }
+
+         */
     }
 
     public setLocation(url) {

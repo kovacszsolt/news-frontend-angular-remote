@@ -22,6 +22,7 @@ export class SlugComponent extends MainComponent implements OnInit {
             this.slug = params.slug;
             this.remoteService.getSlug(this.slug).subscribe((response) => {
                 this.data = response;
+                this.messageService.updateMessage(this.data.meta.title);
             });
         });
 

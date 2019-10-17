@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    BACKEND_SERVER: 'https://itnews.cloud/backend'
+    BACKEND_SERVER: 'https://itnews.cloud/backend',
+    title: 'localhost - develop'
 };
 
 /*
