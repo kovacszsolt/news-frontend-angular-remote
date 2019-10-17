@@ -8,11 +8,11 @@
 
 cache:
   paths:
-    - build/
-    - build/itcrowdhu
-    - build/itnewscloud
+    - dist/
+    - dist/itcrowdhu
+    - dist/itnewscloud
 stages:
-  - build
+  - dist
   - release
   - deploy
 
