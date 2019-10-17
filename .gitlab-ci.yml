@@ -12,7 +12,7 @@ cache:
     - dist/itcrowdhu
     - dist/itnewscloud
 stages:
-  - dist
+  - build
   - release
   - deploy
 
