@@ -1,6 +1,11 @@
 # REGISTRY_USERNAME = password in docker registry
 # REGISTRY_PASSWORD = username in docker registry
 # REGISTRY_IMAGE = image name in registry eg. kovacszsolt/news-frontend-angular-remote
+# DEPLOY_REMOTE_PASSWORD = remote server password for ssh user
+# DEPLOY_REMOTE_USERNAME = remote server username for ssh user
+# DEPLOY_REMOTE_HOST = remote server host for ssh
+# DEPLOY_REMOTE_SCRIPT = remote server  deploy script for ssh
+
 cache:
   paths:
     - build/
@@ -43,9 +48,9 @@ deploy:
   image: alpine:latest
   stage: deploy
   script:
-#    - apk add --update --no-cache openssh sshpass
-#    - sshpass -V
-#    - export SSHPASS=$DEPLOY_REMOTE_PASSWORD
-#    - sshpass -e ssh -oStrictHostKeyChecking=no $DEPLOY_REMOTE_USERNAME@$DEPLOY_REMOTE_HOST '$DEPLOY_REMOTE_SCRIPT'
+    - apk add --update --no-cache openssh sshpass
+    - sshpass -V
+    - export SSHPASS=$DEPLOY_REMOTE_PASSWORD
+    - sshpass -e ssh -oStrictHostKeyChecking=no $DEPLOY_REMOTE_USERNAME@$DEPLOY_REMOTE_HOST '$DEPLOY_REMOTE_SCRIPT'
   only:
     - master
