@@ -52,7 +52,7 @@ class MetaModel {
 
     constructor(myObj: any = {}) {
         (<any>Object).assign(this, myObj);
-        this.imageUrl = environment.BACKEND_SERVER + '/image/original/' + this.slug + '.' + this.extension;
+        this.imageUrl = environment.BACKEND_SERVER + '/image/size1/' + this.slug + '.webp';
     }
 
 }
