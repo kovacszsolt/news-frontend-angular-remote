@@ -46,13 +46,14 @@ class MetaModel {
     title = '';
     description = '';
     image = '';
+    imageUrlWebP = '';
     imageUrl = '';
     slug = '';
     extension = '';
-
     constructor(myObj: any = {}) {
         (<any>Object).assign(this, myObj);
-        this.imageUrl = environment.BACKEND_SERVER + '/image/size1/' + this.slug + '.webp';
+        this.imageUrlWebP = environment.BACKEND_SERVER + '/image/size1/' + this.slug + '.webp';
+        this.imageUrl = environment.BACKEND_SERVER + '/image/size1/' + this.slug + '.'+this.extension;
     }
 
 }

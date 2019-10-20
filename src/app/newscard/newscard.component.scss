@@ -6,9 +6,40 @@
 
 mat-chip {
   cursor: pointer;
+  background-color: #424242 !important;
 }
 
 a {
   color: unset;
   text-decoration: unset;
+}
+
+mat-card {
+  background-color: #e6e6e6;
+}
+
+mat-card-content {
+  color: black;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+}
+
+mat-card-title {
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  mat-card {
+    background-color: #5c5c5c;
+  }
+
+  mat-card-content {
+    color: white;
+  }
+
+  mat-card-title {
+    color: white;
+  }
 }
